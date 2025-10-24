@@ -54,3 +54,33 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+    
+
+
+
+plcie = models.IntegerChoices(
+    'plcie',
+    'Kobieta Mężczyzna Inna'
+)
+
+class Osoba(models.Model):
+    plec_wybor = (
+        ('K', 'kobieta'),
+        ('M', 'mezczyzna'),
+        ('I', 'inna'),
+    )    
+    imie = models.CharField(max_length=50, blank = False, null = False)
+    nazwisko = models.CharField(max_length=100, blank = False, null = False)
+    plec = models.CharField(max_length=1, choices= plec_wybor, default = 'I')
+    stanowisko = models.ForeignKey('Stanowisko', on_delete = models.CASCADE)
+    data_dodania = models.DateField(auto_now_add = True)
+
+
+
+class Stanowisko(models.Model):
+    nazwa = models.CharField(max_length=70, blank = False, null = False)
+    opis = models.TextField(blank = True, null = True)
+
+
+
+
