@@ -75,12 +75,15 @@ class Osoba(models.Model):
     stanowisko = models.ForeignKey('Stanowisko', on_delete = models.CASCADE)
     data_dodania = models.DateField(auto_now_add = True)
 
+    def __str__ (self):
+        return f"osoba: {self.imie} {self.nazwisko}"
+    
+    class Meta:
+        ordering = ['nazwisko']
+
 
 
 class Stanowisko(models.Model):
     nazwa = models.CharField(max_length=70, blank = False, null = False)
     opis = models.TextField(blank = True, null = True)
-
-
-
 
