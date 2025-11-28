@@ -64,10 +64,9 @@ class BookSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'publication_month', 'book_format', 'author', 'genre', 'available_copies']
         # definicja pola modelu tylko do odczytu
         read_only_fields = ['id']
-
-    # walidacja wartości pola title
+    
     def validate_title(self, value):
-        if not value.istitle():
+        if not value[0].isupper():
             raise serializers.ValidationError(
                 "Tytuł książki powinien rozpoczynać się wielką literą!"
             )
