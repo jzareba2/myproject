@@ -1,0 +1,11 @@
+{% extends "app_01\base.html" %}
+
+{% block title %}{{ osoba.imie }} {{ osoba.nazwisko }}{% endblock %}
+
+{% block content %}
+<p>Osoba: {{ osoba.imie }} {{ osoba.nazwisko }}</p>
+<p>Płeć: {{ osoba.plec }}</p>
+<p>Data dodania: {{ osoba.data_dodania }}</p>
+<p>Stanowisko: {{ osoba.stanowisko }}</p>
+<hr>
+{% endblock %}

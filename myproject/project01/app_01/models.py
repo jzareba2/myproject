@@ -81,6 +81,11 @@ class Osoba(models.Model):
     class Meta:
         ordering = ['nazwisko']
 
+    def __str__(self):
+        return f"Osoba : {self.imie} {self.nazwisko}, dodana dnia {self.data_dodania}, o stanowisku {self.stanowisko}, płci {self.plec}.\n" 
+
+
+
 
 
 class Stanowisko(models.Model):
